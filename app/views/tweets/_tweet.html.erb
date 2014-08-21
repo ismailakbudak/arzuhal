@@ -1,6 +1,7 @@
 <p>
   <strong>Tweet:</strong>
-  <%= tweet.tweet %>
+  <%= wrap(tweet.tweet) %>      
+  <%= link_to 'Read', [tweet.user, tweet]  %>
 </p>
  
 <p>

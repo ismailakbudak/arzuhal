@@ -1,22 +1,17 @@
 
 <h2> User Profile </h2>
+<div> <%= gravatar_for(@user, size: 82) %> </div>
 <div> Name : <%= @user.name  %> </div> 
 <div> Surname : <%= @user.surname  %> </div> 
 <div> Email : <%= @user.email  %> </div> 
-<div> Bio : <%= @user.bio  %> </div> 
+<div> Bio : <%=  @user.bio %> </div> 
 
-<hr/>
-<h2> User Last 3 Tweets </h2>
-<%= render @tweets %>
+
 
 <hr/>
 <h2>Add a tweet:</h2>
-<%= form_for([@user, @user.tweets.build]) do |f| %>
-  <p>
-    <%= f.label :tweet %><br>
-    <%= f.text_area :tweet %>
-  </p> 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %> 
+<%= render 'tweets/form' %>
+
+<hr/>
+<h2> User Last <%= @tweets.count %> Tweets </h2>
+<%= render @tweets %>
