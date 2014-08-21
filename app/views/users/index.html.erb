@@ -1,0 +1,30 @@
+<h1> User list </h1>
+ 
+<table>
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:surname) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:bio) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.surname %></td>
+        <td><%= user.email %></td> 
+        <td><%= user.bio %></td> 
+        <td><%= link_to 'Edit', edit_user_path(user) %></td> 
+        <td><%= link_to 'Show', user_path(user)  %></td> 
+        <td><%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Are you sure delete this user?"} %></td> 
+         
+      </tr>
+    <% end %>
+  </tbody>
+</table>
