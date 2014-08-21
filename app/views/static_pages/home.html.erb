@@ -1,0 +1,21 @@
+
+ 
+<% @tweets.each do |tweet| %>
+   <p>
+     <div>
+        <%= link_to gravatar_for(tweet.user, size: 52), tweet.user  %>  
+        <%= tweet.user.name %> 
+     </div>
+     <strong>Tweet:</strong>
+     <%= wrap(tweet.tweet) %>   
+     <%= link_to 'Read', [tweet.user, tweet]  %>
+   </p>
+    
+   <p>
+     <strong>Posted :</strong>
+     <%= time_ago_in_words(tweet.created_at) %> ago. 
+   
+   </p>
+   <hr/>
+
+<% end %>

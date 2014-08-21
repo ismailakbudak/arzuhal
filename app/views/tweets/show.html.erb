@@ -1,0 +1,14 @@
+<h2> Tweet detail </h2>
+<div> <%= gravatar_for(@user, size: 82) %> </div>
+<div> Name : <%= @user.name  %> </div> 
+<div> Surname : <%= @user.surname  %> </div> 
+
+<p>
+  <strong>Tweet:</strong>
+  <%= @tweet.tweet %>
+</p>
+ 
+<p>
+  <strong>Posted :</strong>
+  <%= time_ago_in_words(@tweet.created_at) %> ago. 
+</p>
