@@ -1,1 +1,15 @@
 
+
+<% @tweets.each do |tweet| %>
+   <p>
+     <strong>Tweet:</strong>
+     <%= tweet.tweet %>
+   </p>
+    
+   <p>
+     <strong>Posted :</strong>
+     <%= time_ago_in_words(tweet.created_at) %> ago. 
+   </p>
+   <hr/>
+
+<% end %>

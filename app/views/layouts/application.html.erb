@@ -8,15 +8,12 @@
 </head>
 <body>
 
-
-
-<div style="text-align: center" > 
-
-<%= link_to 'New user', signup_path  %>
-<%= link_to 'Users', users_path  %>
-
-     <%= yield %>
-</div>
+	<div style="text-align: center" > 
+	    <h1> Arzuhal </h1>
+	    <%= link_to 'Home', home_path  %>
+	    <%= link_to 'User Management', users_path  %>
+	    <%= yield %>
+	</div>
 
 </body>
 </html>

@@ -1,0 +1,10 @@
+<p>
+  <strong>Tweet:</strong>
+  <%= tweet.tweet %>
+</p>
+ 
+<p>
+  <strong>Posted :</strong>
+  <%= time_ago_in_words(tweet.created_at) %> ago.
+  <%= link_to 'Delete', [tweet.user,tweet ], method: :delete, data: { confirm: "Are you sure delete this user?" }   %>
+</p>

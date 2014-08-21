@@ -5,3 +5,18 @@
 <div> Email : <%= @user.email  %> </div> 
 <div> Bio : <%= @user.bio  %> </div> 
 
+<hr/>
+<h2> User Last 3 Tweets </h2>
+<%= render @tweets %>
+
+<hr/>
+<h2>Add a tweet:</h2>
+<%= form_for([@user, @user.tweets.build]) do |f| %>
+  <p>
+    <%= f.label :tweet %><br>
+    <%= f.text_area :tweet %>
+  </p> 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %> 
