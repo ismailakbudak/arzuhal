@@ -2,9 +2,11 @@
 %div
   = gravatar_for(@user, size: 82)
 %div
-  Name : #{@user.name}
+  %strong Name : 
+  #{@user.name}
 %div
-  Surname : #{@user.surname}
+  %strong Surname : 
+  #{@user.surname}
 %p
   %strong Tweet:
   = @tweet.tweet
