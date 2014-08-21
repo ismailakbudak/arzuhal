@@ -125,7 +125,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   faker (= 1.1.2)
-  haml-rails
+  haml-rails (~> 0.5.3)
   jbuilder (~> 2.0)
   jquery-rails
   katip (~> 1.4.1)
