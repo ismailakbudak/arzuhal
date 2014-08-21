@@ -1,0 +1,9 @@
+%p
+  %strong Tweet:
+  = wrap(tweet.tweet)
+  = link_to 'Read', [tweet.user, tweet]
+%p
+  %strong Posted :
+  = time_ago_in_words(tweet.created_at)
+  ago.
+  \#{link_to 'Delete', [tweet.user,tweet ], method: :delete, data: { confirm: "Are you sure delete this user?" }}
