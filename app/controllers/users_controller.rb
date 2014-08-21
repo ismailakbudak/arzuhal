@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     
     def show
     	@user = User.find(params[:id])
+    	@tweets = @user.tweets.order(created_at: :desc).limit(3)
     end
 
     def edit
