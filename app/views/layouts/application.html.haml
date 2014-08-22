@@ -10,20 +10,17 @@
     .container
       .header
         %ul.nav.nav-pills.pull-right
-          %li.active
-            = link_to 'Home', root_path
-          %li
-            = link_to 'About', about_path
-          %li
-            = link_to 'Help', help_path
-          %li
-            = link_to 'Contact', contact_path 
-          %li
-            = link_to 'Sign Up', signup_path
-          %li
-            = link_to 'Sign In', '#'
-          %li
-            = link_to 'User Management', users_path   
+          %li.active= link_to 'Home', root_path
+          %li= link_to 'About', about_path
+          %li= link_to 'Help', help_path
+          %li= link_to 'Contact', contact_path
+          - if user_signed_in?
+            %li= link_to 'User Management', users_path   
+            %li= link_to current_user.full_name, edit_user_registration_path
+            %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+          - else
+            %li= link_to 'Sign in', new_user_session_path    
+            %li= link_to 'Sign Up', new_user_registration_path
         %h3.text-muted 
           = link_to 'Arzuhal', root_path
       %hr

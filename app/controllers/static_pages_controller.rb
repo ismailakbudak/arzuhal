@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   
+ 
+
   def home
   	@tweets = Tweet.all.order(created_at: :desc).paginate(page: params[:page])
   end
