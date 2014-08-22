@@ -21,7 +21,9 @@ def make_users
     User.create!(name:     name,
                  surname:  surname, 
                  email:    email,
-                 bio:  bio)
+                 bio:      bio,
+                 password: '123456ss'
+                  )
   end
 end
 

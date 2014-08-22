@@ -1,0 +1,15 @@
+= will_paginate @tweets
+- @tweets.each do |tweet|
+  %div
+    %div
+      = link_to gravatar_for(tweet.user, size: 52), tweet.user
+      = tweet.user.name
+    %strong Tweet:
+    = wrap(tweet.tweet)
+    = link_to 'Read', [tweet.user, tweet], class: 'btn btn-sm btn-success'
+  %div
+    %strong Posted :
+    = time_ago_in_words(tweet.created_at) 
+    ago.
+  %hr/
+= will_paginate  @tweets

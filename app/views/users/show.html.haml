@@ -1,0 +1,25 @@
+%h2 User Profile
+%div
+  = gravatar_for(@user, size: 82)
+%div
+  %strong Name : 
+  #{@user.name}
+%div
+  %strong Surname : 
+  #{@user.surname}
+%div
+  %strong Email : 
+  #{@user.email}
+%div
+  %strong Bio : 
+  #{@user.bio}
+%hr/
+.row
+  .col-md-6.col-md-offset-3
+    = render 'tweets/form'
+%hr/
+%h2
+  User Tweets
+= will_paginate @tweets  
+= render @tweets
+= will_paginate @tweets

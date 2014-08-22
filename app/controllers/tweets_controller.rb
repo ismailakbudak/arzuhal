@@ -7,9 +7,9 @@ class TweetsController < ApplicationController
     	@user = User.find(params[:user_id])
     	@tweet = @user.tweets.new(tweet_params)
     	if @tweet.save
-    	     redirect_to @user
+    	     redirect_to @user, notice: "Tweet was created successfuly.."
     	else
-    		 @tweets = @user.tweets.order(created_at: :desc).limit(3)
+    		 @tweets = @user.tweets.order(created_at: :desc).paginate(page: params[:page])
              render "users/show"
     	end 
         

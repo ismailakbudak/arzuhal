@@ -1,0 +1,22 @@
+ 
+= will_paginate 
+%br
+%table.table.table-bordered.table-hover 
+  %thead
+    %tr
+      %th= User.human_attribute_name(:name)
+      %th= User.human_attribute_name(:surname)
+      %th= User.human_attribute_name(:email)
+      %th Action
+      %th Action
+      %th Action
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.surname
+        %td= user.email
+        %td= link_to 'Edit', edit_user_path(user), class: 'btn btn-success'
+        %td= link_to 'Show', user_path(user), class: 'btn btn-info'
+        %td= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Are you sure delete this user?"}, class: 'btn btn-danger' 
+= will_paginate 

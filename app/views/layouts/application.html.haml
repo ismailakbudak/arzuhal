@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %title Arzuhal
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    
+    .container
+      .header
+        %ul.nav.nav-pills.pull-right
+          %li.active= link_to 'Home', root_path
+          %li= link_to 'About', about_path
+          %li= link_to 'Help', help_path
+          %li= link_to 'Contact', contact_path
+          - if user_signed_in?
+            %li= link_to 'User Management', users_path   
+            %li= link_to current_user.full_name, edit_user_registration_path
+            %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+          - else
+            %li= link_to 'Sign in', new_user_session_path    
+            %li= link_to 'Sign Up', new_user_registration_path
+        %h3.text-muted 
+          = link_to 'Arzuhal', root_path
+      %hr
+      - if flash.count > 0
+        - flash.each do |name, msg|
+          - if name == 'notice' 
+            - name = 'success'
+          %div{class: "alert alert-#{name}"}
+            %a.close{'data-dismiss' => 'alert', :href => '#'} &times;
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+      = yield 
+      %footer.footer
+        %small
+          %a{:href => "http://ismailakbudak.com/blog"} Blog
+          by Ismail Akbudak
+        %nav
+          %ul
+            %li= link_to "About",   about_path
+            %li= link_to "Contact", contact_path
+      = debug(params) if Rails.env.development?

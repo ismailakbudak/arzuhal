@@ -1,0 +1,16 @@
+%h2 Tweet detail
+%div
+  = gravatar_for(@user, size: 82)
+%div
+  %strong Name : 
+  #{@user.name}
+%div
+  %strong Surname : 
+  #{@user.surname}
+%p
+  %strong Tweet:
+  = @tweet.tweet
+%p
+  %strong Posted :
+  = time_ago_in_words(@tweet.created_at)
+  ago.
