@@ -26,7 +26,14 @@
             = link_to 'User Management', users_path   
         %h3.text-muted 
           = link_to 'Arzuhal', root_path
-      %hr  
+      %hr
+      - if flash.count > 0
+        - flash.each do |name, msg|
+          - if name == 'notice' 
+            - name = 'success'
+          %div{class: "alert alert-#{name}"}
+            %a.close{'data-dismiss' => 'alert', :href => '#'} &times;
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
       = yield 
       %footer.footer
         %small

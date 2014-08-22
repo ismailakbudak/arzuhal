@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     match '/about',   to: 'static_pages#about',   via: 'get'
     match '/contact', to: 'static_pages#contact', via: 'get'
     match '/signup',  to: 'users#new',            via: 'get'
+    match '/signup/:id',  to: 'users#new',        via: 'get', as: 'profile1' 
  
     resources 'users' do
        resources 'tweets'  

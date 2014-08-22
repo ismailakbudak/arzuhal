@@ -1,4 +1,4 @@
-= form_for @user do |f|
+= simple_form_for @user do |f|
   - if @user.errors.any?
     #error_explanation
       %h4
@@ -7,17 +7,9 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  %p
-    %strong Name : 
-    #{f.text_field :name}
-  %p
-    %strong Surname : 
-    #{f.text_field :surname}
-  %p
-    %strong E-mail : 
-    #{f.text_field :email}
-  %p
-    %strong Bio : 
-    #{f.text_area :bio}
-  %p
-    = f.submit class: 'btn btn-sm btn-primary'
+  = f.input :name
+  = f.input :surname
+  = f.input :email
+  = f.input :bio
+  .col-md-4.col-md-offset-4 
+    = f.button :submit, class: 'btn btn-sm btn-primary'
