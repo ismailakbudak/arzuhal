@@ -9,7 +9,7 @@ class TweetsController < ApplicationController
     	if @tweet.save
     	     redirect_to @user
     	else
-    		 @tweets = @user.tweets.order(created_at: :desc).limit(3)
+    		 @tweets = @user.tweets.order(created_at: :desc).paginate(page: params[:page])
              render "users/show"
     	end 
         

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	
 	def index
-		@users = User.all
+		 @users = User.paginate(page: params[:page])
 	end
 
 	def new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     
     def show
     	@user = User.find(params[:id])
-    	@tweets = @user.tweets.order(created_at: :desc).limit(3)
+    	@tweets = @user.tweets.order(created_at: :desc).paginate(page: params[:page])
         @tweet = Tweet.new   # Nill tweet
     end
 

@@ -14,9 +14,12 @@
   %strong Bio : 
   #{@user.bio}
 %hr/
-%h2 Add a tweet:
-= render 'tweets/form'
+.row
+  .col-md-6.col-md-offset-3
+    = render 'tweets/form'
 %hr/
 %h2
-  User Last #{@tweets.count} Tweets
+  User Tweets
+= will_paginate @tweets  
 = render @tweets
+= will_paginate @tweets

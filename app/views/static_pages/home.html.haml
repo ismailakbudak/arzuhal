@@ -1,3 +1,4 @@
+= will_paginate @tweets
 - @tweets.each do |tweet|
   %div
     %div
@@ -11,3 +12,4 @@
     = time_ago_in_words(tweet.created_at) 
     ago.
   %hr/
+= will_paginate  @tweets
